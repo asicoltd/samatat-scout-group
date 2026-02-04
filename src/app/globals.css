@@ -1,0 +1,267 @@
+/* Global Styles & Design System */
+
+:root {
+  /* Primary Brand Colors - Green & Yellow */
+  --color-primary-green: #2d6a4f;
+  --color-primary-yellow: #f4a622;
+  
+  /* Scout Program Colors */
+  --color-cub-yellow: #f4a622;
+  --color-scout-green: #2d6a4f;
+  --color-rover-red: #c1121f;
+  
+  /* Green Shades */
+  --color-forest-green: #1a4d2e;
+  --color-light-green: #40916c;
+  --color-green-tint: #d8f3dc;
+  
+  /* Yellow Shades */
+  --color-bright-yellow: #f4a622;
+  --color-gold: #d4940b;
+  --color-yellow-tint: #fff8e7;
+  
+  /* Accent Colors */
+  --color-scout-violet: #6a4c93;
+  
+  /* Neutral Palette */
+  --color-cream: #faf8f3;
+  --color-beige: #e8e4dc;
+  --color-tan: #d4cfc4;
+  --color-charcoal: #2d2d2d;
+  --color-stone: #5a5a5a;
+  --color-white: #ffffff;
+  
+  /* Typography */
+  --font-display: 'Crimson Pro', serif;
+  --font-body: 'DM Sans', sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  
+  /* Layout */
+  --max-width: 1200px;
+  --border-radius: 4px;
+  
+  /* Transitions */
+  --transition-fast: 200ms ease;
+  --transition-smooth: 350ms ease;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-forest-green);
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: var(--space-md);
+  max-width: 65ch;
+}
+
+a {
+  color: var(--color-primary-green);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-forest-green);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+.section-title {
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+/* Button System - Green & Yellow Theme */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Primary Button - Green */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary-green) 0%, var(--color-forest-green) 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+}
+
+.btn-primary:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 106, 79, 0.4);
+}
+
+/* Secondary Button - Yellow Outline */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary-green);
+  border: 2px solid var(--color-primary-yellow);
+  box-shadow: 0 0 0 0 var(--color-primary-yellow);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-yellow);
+  color: white;
+  border-color: var(--color-primary-yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 166, 34, 0.4);
+}
+
+/* Program Specific Buttons */
+.btn-cub {
+  background: linear-gradient(135deg, var(--color-cub-yellow) 0%, var(--color-gold) 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(244, 166, 34, 0.3);
+}
+
+.btn-scout {
+  background: linear-gradient(135deg, var(--color-scout-green) 0%, var(--color-forest-green) 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+}
+
+.btn-rover {
+  background: linear-gradient(135deg, var(--color-rover-red) 0%, #9a0f1a 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(193, 18, 31, 0.3);
+}
+
+/* Badge Pattern Background */
+.pattern-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.pattern-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(45, 106, 79, 0.02) 35px, rgba(45, 106, 79, 0.02) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(244, 166, 34, 0.02) 35px, rgba(244, 166, 34, 0.02) 70px);
+  pointer-events: none;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+  }
+  
+  .container {
+    padding: 0 var(--space-sm);
+  }
+}
